@@ -6,20 +6,20 @@ tktk Write a short but descriptive summary of the content in this module.
 
 ## Prerequisites
 
-- tktk
-- tktk
+- React Components
+- React State Management
 - tktk
 
 ## Content
 
-| Lesson | Video Time | Video | Skills |
-| ------ |:----------:|:-----:| ------ |
-| [Setup](./setup/README.md)                               | -- | -- | Setting up the development environment  |
-| [Concepts](./concepts/README.md)                         | -- | -- | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | -- | -- | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | -- | -- | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | -- | -- | tktk skills covered                     |
-| **Total content**                                        | -- | -- |                                         |
+| Lesson | Skills |
+| ------ | ------ |
+| [Setup](./setup/README.md)                               | Setting up the development environment  |
+| [Concepts](./concepts/README.md)                         | tktk skills covered                     |
+| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | tktk skills covered                     |
+| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | tktk skills covered                     |
+| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | tktk skills covered                     |
+
 
 ## Level Up content
 
