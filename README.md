@@ -15,7 +15,7 @@ This covers React Router
 | [Setup](./setup/README.md)                               | Setting up the development environment |
 | [Concepts](./concepts/README.md)                         | Describing Usefulness of React Router  |
 | [Installation](./installation/README.md)                 | Installing React Router                |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | tktk skills covered                    |
+| [Creating Routes](./creating-routes/README.md)           | Creating Routes                        |
 | [tktk Microlesson Name](./tktk-microlesson-03/README.md) | tktk skills covered                    |
 
 
