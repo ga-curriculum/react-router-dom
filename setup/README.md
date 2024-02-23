@@ -39,12 +39,20 @@ Open the `App.jsx` file in the `src` directory and replace the contents of it wi
 
 ```jsx
 // src/App.jsx
+const pokemon = [
+	{ id: 1, name: 'bulbasaur', weight: 69, height: 7 },
+	{ id: 2, name: 'ivysaur', weight: 130, height: 10 },
+	{ id: 3, name: 'venusaur', weight: 1000 , height: 20 },
+	{ id: 4, name: 'charmander', weight: 85, height: 6 },
+	{ id: 5, name: 'charmeleon', weight: 190, height: 11 },
+]
 
 const App = () => {
 
   return (
     <h1>Hello world!</h1>
   );
+
 }
 
 export default App
