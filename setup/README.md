@@ -35,7 +35,7 @@ code .
 
 ### Clear `App.jsx`
 
-Open the `App.jsx` file in the `src` directory and replace the contents of it with the following:
+Open the `App.jsx` file in the `src` directory and replace the contents of it with the following.  
 
 ```jsx
 // src/App.jsx
@@ -47,16 +47,36 @@ const pokemon = [
 	{ id: 5, name: 'charmeleon', weight: 190, height: 11 },
 ]
 
+const Pokemon = () => {
+	return (
+		<>
+			<h2>Pokemon</h2>
+			<ul>
+				{pokemon.map((currentPokemon, index) => {
+					return <li key={currentPokemon.name}>
+						{currentPokemon.name}
+					</li>
+				})}
+			</ul>
+		</>
+	)
+}
+
 const App = () => {
 
-  return (
-    <h1>Hello world!</h1>
-  );
+	return (
+		<>
+			<h1>Pokemon!</h1>
+			<Pokemon/>
+		</>
+	);
 
 }
 
 export default App
 ```
+
+**NOTE:** For ease of learning, we've including multiple components in the same file along with the data.  In production, you would put each of these in a separate file, but to make learning easier let's keep them in `App.jsx` for now.  Feel free to move them into separate files, if you'd prefer.
 
 Open the `main.jsx` file in the `src` directory and remove the following line:
 
