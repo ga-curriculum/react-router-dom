@@ -1,24 +1,22 @@
-# ![[tktk Module Name]](./assets/tktk-hero.png)
+# ![React Router](./assets/tktk-hero.png)
 
 ## About
 
-tktk Write a short but descriptive summary of the content in this module.
+This covers React Router
 
 ## Prerequisites
 
 - React Components
-- React State Management
-- tktk
 
 ## Content
 
-| Lesson | Skills |
-| ------ | ------ |
-| [Setup](./setup/README.md)                               | Setting up the development environment  |
-| [Concepts](./concepts/README.md)                         | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | tktk skills covered                     |
+| Lesson                                                   | Skills                                 |
+| -------------------------------------------------------- | -------------------------------------- |
+| [Setup](./setup/README.md)                               | Setting up the development environment |
+| [Concepts](./concepts/README.md)                         | Describing Usefulness of React Router  |
+| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | tktk skills covered                    |
+| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | tktk skills covered                    |
+| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | tktk skills covered                    |
 
 
 ## Level Up content
