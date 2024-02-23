@@ -18,6 +18,7 @@ This covers React Router
 | [Installation](./installation/README.md)                 | Installing React Router                |
 | [Creating Routes](./creating-routes/README.md)           | Creating Routes                        |
 | [Creating Links](./creating-links/README.md)             | Creating Links to Routes               |
+| [Route Parameters](./route-parameters/README.md)         | Creating Dynamic Aspects of URLs       |
 
 
 ## Level Up content
