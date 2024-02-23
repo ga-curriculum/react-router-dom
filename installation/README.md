@@ -1,4 +1,4 @@
-# ![Installation - React Router](./assets/hero.png)
+# ![React Router - Installation](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to install React Router
 
