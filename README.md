@@ -7,6 +7,7 @@ This covers React Router
 ## Prerequisites
 
 - React Components
+- Props
 
 ## Content
 
@@ -16,7 +17,7 @@ This covers React Router
 | [Concepts](./concepts/README.md)                         | Describing Usefulness of React Router  |
 | [Installation](./installation/README.md)                 | Installing React Router                |
 | [Creating Routes](./creating-routes/README.md)           | Creating Routes                        |
-| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | tktk skills covered                    |
+| [Creating Links](./creating-links/README.md)             | Creating Links to Routes               |
 
 
 ## Level Up content
