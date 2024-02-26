@@ -1,27 +1,44 @@
 # ![React Router - Installation](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to install React Router
+**Learning objective:** By the end of this lesson, students will be able to add React Router to a React app and understand its initial setup.
 
-## Description
+## Installation
 
-React Router is a third party package that plugs into React.  Let's install it
+To add React Router, the first step is installing the package.
+
+Begin by installing the `react-router-dom` package using npm:
 
 ```bash
-npm install react-router-dom
+npm i react-router-dom
 ```
 
-Now at the top of `src/main.jsx` require it:
+### Setting up React Router
 
-```js
-import { BrowserRouter } from "react-router-dom";
-```
+With `react-router-dom` installed, the next step is to set it up in our project. 
 
-and in the same file (`src/main.jsx`) surround the `<App />` component like so:
+We'll start by importing `BrowserRouter` in our entry file, typically `src/main.jsx`. `BrowserRouter` is a component in React Router that enables navigation. It allows your app to update the URL and display different pages without reloading the whole page. 
+
+Add the following to `src/main.jsx`:
 
 ```jsx
-<BrowserRouter>
-	<App />
-</BrowserRouter>
+// src/main.jsx
+import { BrowserRouter } from 'react-router-dom';
 ```
 
-Congrats!  React Router is now installed and ready to be implemented in your app.
+Next, wrap the `<App />` component with `<BrowserRouter>`:
+
+```jsx
+// src/main.jsx
+// Wrap App within <BrowserRouter> to enable routing:
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
+)
+```
+
+> 💡 By wrapping `BrowserRouter` around the `App` component, it ensures that routing functionality is available within the `App` component tree.
+
+Congratulations! You've successfully integrated React Router into your React application. With this setup, you're now ready to define routes and build a dynamic, navigable single-page application.
