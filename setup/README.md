@@ -35,7 +35,7 @@ code .
 
 ### Clear `App.jsx`
 
-Open the `App.jsx` file in the `src` directory and replace the contents of it with the following.  
+Open `src/App.jsx` and replace its contents with the following:
 
 ```jsx
 // src/App.jsx
@@ -47,7 +47,7 @@ const pokemon = [
 	{ id: 5, name: 'charmeleon', weight: 190, height: 11 },
 ]
 
-const Pokemon = () => {
+const PokemonList = () => {
 	return (
 		<>
 			<h2>Pokemon</h2>
@@ -67,7 +67,7 @@ const App = () => {
 	return (
 		<>
 			<h1>Pokemon!</h1>
-			<Pokemon/>
+			<PokemonList />
 		</>
 	);
 
