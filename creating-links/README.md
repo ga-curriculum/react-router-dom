@@ -1,57 +1,60 @@
 # ![React Router - Creating Links](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to create clickable links that will update the path of the URL in the browser
+**Learning objective:** By the end of this lesson, students will be able to create navigable links within their React application that update the browser's URL path.
 
-## Description
+## Understanding the `<Link>` component
 
-At this point, we have the ability to update the path of the URL in the browser in order to display different components in our app.  Obviously this is terrible from a user experience perspective.  How would the user know what paths to use?  Typing these paths in manually is a huge pain.  In this section, we'll create links that the user can click on, that will update the path of the URL in the browser for us.  Just like real links!
+React Router provides a `<Link>` component designed specifically for SPAs, that behaves much like the HTML `<a>` tag. The `<Link>` component allows users to change the path of the browser URL with a click, just like traditional web links.
 
-## Create a Nav Bar Structure
-
-In the `return` statement of your `<App>` component declaration, add the follow just below `<h1>Pokemon!</h1>`:
+Take a look at the example of a `<Link>` component below:
 
 ```jsx
+<Link to='/'>Home</Link>
+```
+
+The `<Link>` component differs from a traditional `<a>` tag, in that it accepts a `to` prop instead of an `href`. The `to` prop is used to specify the navigation target. This prop can be a string representing the path or an object with more detail.
+
+## Creating a navigation bar
+
+Let's add some basic navigation to our application. Below the `<h1>Pokemon!</h1>` in your `<App>` component, insert the following HTML structure:
+
+```jsx
+// src/App.jsx
 <nav>
-	<ul>
-		<li>
-			Home
-		</li>
-		<li>
-			Pokemon
-		</li>
-	</ul>
+  <ul>
+    <li>Home</li>
+    <li>Pokemon</li>
+  </ul>
 </nav>
 ```
 
-This is currently just some static HTML at the moment, but it sets us up for creating links.
+This setup prepares us for integrating navigable links.
 
-## Import Links
+## Implementing links
 
-At the top of `src/App.jsx`, update your import statement, by adding `Link` to the list of imports we take from `react-router-dom`:
-
-```js
-import { Routes, Route, Link} from "react-router-dom"; //add Link
-```
-
-## Create Links
-
-We've now imported the `<Link />` component that we'll use in place of the old `<a>` tag from basic HTML.  Update our nav bar by surrounding the content of our `<li>` elements with `<Link />` components like so:
+At the top of `src/App.jsx`, we'll import `Link` from `react-router-dom`:
 
 ```jsx
+// src/App.jsx
+import { Link } from 'react-router-dom';
+```
+
+Next, update the list items in the navigation bar by wrapping their content with a `<Link>` component:
+
+```jsx
+// src/App.jsx
 <nav>
-	<ul>
-		<li>
-			<Link to="/">Home</Link>
-		</li>
-		<li>
-			<Link to="/pokemon">Pokemon</Link>
-		</li>
-	</ul>
+  <ul>
+    <li>
+      <Link to='/'>Home</Link>
+    </li>
+    <li>
+      <Link to='/pokemon'>Pokemon</Link>
+    </li>
+  </ul>
 </nav>
 ```
 
-Notice that these `<Link>` components are almost identical to `<a>` tags, but instead of an `href` attribute, we have `to` prop.
+This transforms the text content into clickable links, allowing our users to navigate to the URL path defined in each `<Link>`.
 
-Go back to the browser and test this by clicking on the links.  Notice that clicking on a link will update the path of the URL in the browser, which in turn shows the corresponding component, as defined in our `<Routes>` component.
-
-This feels like a multi-page app, but from the technical perspective, it's not!  It's a SPA that uses JS to mimic this user experience.
+After adding the `<Link>` components, test out the navigation in your browser. Clicking on the links should change the URL path accordingly, but not the content displayed in your app. Although we are able to navigate between different locations in our app, we have yet to define what should be rendered at each of these locations. For that, we'll need to make use of React Router's `<Routes>` component.
