@@ -1,8 +1,8 @@
-# ![React Router](./assets/tktk-hero.png)
+# ![React Router DOM](./assets/tktk-hero.png)
 
 ## About
 
-This covers React Router
+This covers the fundamentals React Router, including installation, link components, client-side routing, dynamic routing, a programmatic navigation.
 
 ## Prerequisites
 
@@ -13,13 +13,13 @@ This covers React Router
 
 | Lesson                                                   | Skills                                 |
 | -------------------------------------------------------- | -------------------------------------- |
-| [Setup](./setup/README.md)                               | Setting up the development environment |
-| [Concepts](./concepts/README.md)                         | Describing Usefulness of React Router  |
-| [Installation](./installation/README.md)                 | Installing React Router                |
-| [Creating Routes](./creating-routes/README.md)           | Creating Routes                        |
-| [Creating Links](./creating-links/README.md)             | Creating Links to Routes               |
-| [Route Parameters](./route-parameters/README.md)         | Creating Dynamic Aspects of URLs       |
-
+| [Setup](./setup/README.md) | Setting up the development environment |
+| [Concepts](./concepts/README.md) | Describing usefulness of React Router  |
+| [Installing React Router](./installing-react-router/README.md) | Adding React Router to an application  |
+| [Creating Links](./creating-links/README.md) | Implementing `<Link>` components for navigation |
+| [Creating Routes](./creating-routes/README.md) | Creating Routes |
+| [Route Parameters](./route-parameters/README.md) | Creating dynamic aspects of URLs |
+| [Programmatic Navigation](./programmatic-navigation/README.md) | Redirecting after an action |
 
 ## Level Up content
 

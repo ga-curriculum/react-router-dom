@@ -78,8 +78,8 @@ And finally, update the `<Routes/>` component of the `<App/>` component like so:
 // src/App.jsx
 			<Routes>
 				<Route path='/' element={<h2>Home Page</h2>} />
-				<Route path='/pokemon' element={<PokemonList pokemonData={pokemonData} />} />
-				<Route path='/pokemon/:pokemonId' element={<PokemonDetails pokemonData={pokemonData} />} />
+				<Route path='/pokemon' element={<PokemonList pokemon={pokemon} />} />
+				<Route path='/pokemon/:pokemonId' element={<PokemonDetails pokemon={pokemon} />} />
 			</Routes>
 ```
 
@@ -89,13 +89,13 @@ In React Router, route parameters are defined in the `path` using a `:` symbol. 
 
 In short, this new `<Route>` tells React Router to render `<PokemonDetails />` for URLs following the pattern `/pokemon/1`, `/pokemon/2`, `/pokemon/3`, etc.
 
-> 💡 Notice how we are we passing the `pokemonData` array to `<PokemonDetails />`. In the next section, we'll use this array in conjuction with our `pokemonId` route parameter to locate and render a specific pokemon in the array.
+> 💡 Notice how we are we passing the `pokemon` array to `<PokemonDetails />`. In the next section, we'll use this array in conjuction with our `pokemonId` route parameter to locate and render a specific pokemon in the array.
 
 ## Accessing dynamic parameters with `useParams()`
 
 With the route in place, you should now be able to navigate to the details page. 
 
-Notice the `_id` value stored in the URL bar of the details page. We'll need this value to find a specific pokemon object in the `props.pokemonData` array. To do so, we'll make use of React Router's `useParams()` hook.
+Notice the `_id` value stored in the URL bar of the details page. We'll need this value to find a specific pokemon object in the `props.pokemon` array. To do so, we'll make use of React Router's `useParams()` hook.
 
 The `useParams()` hook returns an object with properties for each route parameter in the current URL. 
 
@@ -115,7 +115,7 @@ In `src/components/PokemonDetails.jsx`, the object returned from `useParams()` m
 Additionally, the `useParams()` hook can take advantage of object destructuring:
 
 ```jsx
-  const { pokemonId } = useParams();
+const { pokemonId } = useParams();
 console.log(pokemonId); // Expected output: '1'
 ```
 
@@ -139,10 +139,9 @@ const PokemonDetails = (props) => {
 
 Try navigating to the details page once again, and verify that you are able to access the `pokemonId` route parameter.
 
-
 ## Rendering the data
 
-Our last task is to `find()` a specific pokemon in the `props.pokemonData` array using the extracted `pokemonId`.
+Our last task is to `find()` a specific pokemon in the `props.pokemon` array using the extracted `pokemonId`.
 
 Update `src/components/PokemonDetails.jsx` with the following:
 
@@ -150,7 +149,7 @@ Update `src/components/PokemonDetails.jsx` with the following:
 // src/components/PokemonDetails.jsx
 const PokemonDetails = (props) => {
   const { pokemonId } = useParams();
-  const singlePokemon = props.pokemonData.find((poke) => poke._id === Number(pokemonId));
+  const singlePokemon = props.pokemon.find((poke) => poke._id === Number(pokemonId));
   console.log('Pokemon Object:', singlePokemon)
 ```
 
