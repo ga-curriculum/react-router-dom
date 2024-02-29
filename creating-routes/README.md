@@ -1,62 +1,71 @@
 # ![React Router - Creating Routes](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to create routes that will display different components based on the URL in the browser
+**Learning objective:** By the end of this lesson, students will be able to create client-side routes with React Router.
 
-## Description
+## Implementing client-side routing with React Router
 
-In this section, we're going to set up React Router to display different components, based on the URL that we type into the URL bar in the browser.
+With our navigation bar in place, we can now define the content that should be rendered at each location in our app with some client-side routing. Through client-side routing, we can render different components based on the URL, mimicking the functionality of a traditional multi-page website within a single-page application.
 
-## Add Your First Route
+To build out these routes, we'll need two components provided by React Router:
 
-At the top of `src/App.jsx`, let's import the following:
+1. **`<Route>`**: Used to define individual routes within the application. Each `<Route>` specifies a **path** and an **element** to render when that path is accessed.
 
-```js
-import { Routes, Route } from "react-router-dom";
-```
+2. **`<Routes>`**: Acts as a container for individal `<Route>` components. When a user accesses a URL, the `<Routes>` component looks through its child routes to find the best match, rendering the corresponding UI.
 
-Now adjust the `return` statement so it matches this:
+## Defining routes
 
-```jsx
-return (
-	<>
-		<h1>Pokemon!</h1>
-		<Routes>
-			<Route path="/pokemon" element={<Pokemon/>} />
-		</Routes>
-	</>
-);
-```
-
-- The `<Routes>` component will contain all of the individual routes for our application
-- The `<Route>` component defines a single route based on the props it is passed
-	- When the path section of the URL in the browser matches the value set to `path` (in this case `/pokemon`, it will display the component that `element` is set to (in this case `<Pokemon/>`)
-
-Now if you go to `http://localhost:5173/` you'll just see the header `Pokemon!`.
-
-If you change the URL to `http://localhost:5173/pokemon` the `<Pokemon/>` component will be displayed as well.
-
-## Create a Root Route
-
-Let's create a route for the URL `http://localhost:5173/`.  In `App.jsx`, create the following component just above the `const Pokemon` component declaration.
+At the top of `src/App.jsx`, let's import `Route` and `Routes` from `react-router-dom`:
 
 ```jsx
-const Home = () => {
+// src/App.jsx
+import { Route, Routes } from 'react-router-dom';
+```
+
+Next, we'll need to adjust the `return` statement to include the `<Routes>` component. This `<Routes>` component will contain all of the individual routes for our application.
+
+Add the following to `src/App.jsx`:
+
+```jsx
+// src/App.jsx
+// ...
 	return (
 		<>
-			<h2>Home</h2>
-			<p>Welcome to my Pokemon website!</p>
+			<h1>Pokemon!</h1>
+			<NavBar />
+			<Routes>
+
+			</Routes>
 		</>
 	);
-}
 ```
 
-Now let's add a route for displaying that component by updating your `<Routes>` component like so:
+Currently, our navigation bar has a link directing users to `'/pokemon'`. Let's define a `<Route>` so that the `<PokemonList>` component is rendered at this path.
 
 ```jsx
-<Routes>
-	<Route path="/" element={<Home />} />
-	<Route path="/pokemon" element={<Pokemon/>} />
-</Routes>
+// src/App.jsx
+// ...
+			<Routes>
+				<Route path='/pokemon' element={<PokemonList pokemon={pokemon} />} />
+			</Routes>
 ```
 
-Now alter the path in your URL from `http://localhost:5173/` to `http://localhost:5173/pokemon` and back.  You should notice the relevant component is displayed, depending on whether the path is `/` or `/pokemon`
+With the above `<Route>` component, we have defined a path (`/pokemon`) and the component (`<PokemonList />`) to render when that path is accessed.
+
+Start the app up and open up your browser. Click on the 'Pokemon' link in the nav bar to navigate to `'/pokemon'`. You should see the `pokemon` data being rendered! If you navigate back to `'/'` with the 'Home' link, you might notice that only the page header and `<NavBar />` are being rendered. Let's address that issue in the next section.
+
+## Creating a default route
+
+To set up a default route (home page), we *could* create a new `Homepage.jsx` component, but we can also define some JSX to render directly in the `element` prop. Let's go with the second option to better demonstrate some of the flexibility you have in building routes.
+
+Add the following to the `<Routes>` in `src/App.jsx`:
+
+```jsx
+// src/App.jsx
+// ...
+			<Routes>
+				<Route path='/' element={<h2>Home Page</h2>} />
+				<Route path='/pokemon' element={<PokemonList pokemon={pokemon} />} />
+			</Routes>
+```
+
+Try it out in your browser. Using the nav bar, try navigating between the two pages.

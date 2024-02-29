@@ -33,55 +33,61 @@ Open the project's folder in your code editor:
 code .
 ```
 
-### Clear `App.jsx`
+## Getting started
 
-Open the `App.jsx` file in the `src` directory and replace the contents of it with the following.  
+Run the following command in your terminal:
+
+```bash
+touch src/components/PokemonList.jsx
+```
+
+Add the following to `src/components/PokemonList.jsx`:
 
 ```jsx
-// src/App.jsx
-const pokemon = [
-	{ id: 1, name: 'bulbasaur', weight: 69, height: 7 },
-	{ id: 2, name: 'ivysaur', weight: 130, height: 10 },
-	{ id: 3, name: 'venusaur', weight: 1000 , height: 20 },
-	{ id: 4, name: 'charmander', weight: 85, height: 6 },
-	{ id: 5, name: 'charmeleon', weight: 190, height: 11 },
-]
-
-const Pokemon = () => {
+const PokemonList = (props) => {
 	return (
 		<>
 			<h2>Pokemon</h2>
 			<ul>
-				{pokemon.map((currentPokemon, index) => {
-					return <li key={currentPokemon.name}>
+				{props.pokemon.map((currentPokemon) => (
+					<li key={currentPokemon.name}>
 						{currentPokemon.name}
 					</li>
-				})}
+				))}
 			</ul>
 		</>
-	)
-}
+	);
+};
+
+export default PokemonList;
+```
+
+Open `src/App.jsx` and replace its contents with the following:
+
+```jsx
+// src/App.jsx
+import { useState } from 'react';
+import PokemonList from './components/PokemonList';
+
+const initialState = [
+	{ _id: 1, name: 'bulbasaur', weight: 69, height: 7 },
+	{ _id: 2, name: 'ivysaur', weight: 130, height: 10 },
+	{ _id: 3, name: 'venusaur', weight: 1000, height: 20 },
+	{ _id: 4, name: 'charmander', weight: 85, height: 6 },
+	{ _id: 5, name: 'charmeleon', weight: 190, height: 11 },
+];
 
 const App = () => {
-
+	const [pokemon, setPokemon] = useState(initialState);
 	return (
 		<>
 			<h1>Pokemon!</h1>
-			<Pokemon/>
+			<PokemonList pokemon={pokemon} />
 		</>
 	);
+};
 
-}
-
-export default App
-```
-
-**NOTE:** For ease of learning, we've including multiple components in the same file along with the data.  In production, you would put each of these in a separate file, but to make learning easier let's keep them in `App.jsx` for now.  Feel free to move them into separate files, if you'd prefer.
-
-Open the `main.jsx` file in the `src` directory and remove the following line:
-
-```jsx
-import './index.css'
+export default App;
 ```
 
 Start the dev server by running `npm run dev` in your terminal and the go to `localhost:5173` in your browser.
