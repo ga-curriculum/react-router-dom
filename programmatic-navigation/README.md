@@ -131,7 +131,7 @@ Add the following function to `src/App.jsx`:
 ```jsx
 // src/App.jsx
 	const addPokemon = (newPokemonData) => {
-		newPokemonData._id = pokemon.length;
+		newPokemonData._id = pokemon.length + 1;
 		setPokemon([...pokemon, newPokemonData]);
 	};
 ```

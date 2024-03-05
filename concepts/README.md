@@ -8,15 +8,15 @@ Single-page applications (SPAs) have many advantages over older, multi-page, ser
 
 Here are some examples:
 
-- With an SPA, you can't bookmark any interior pages, as the site only has one URL. You could certainly bookmark the root of the app, but you'd need to repeat a set of steps each time you wanted to go to a certain page.
-- Similarly, with an SPA you can't send URL's to other people. Just like with bookmarks, if there's only one URL for the site, you'd have to include instructions on how get from the home page of the app to a specific location along with the URL itself.
-- Anchor tags (`<a>`) cannot handle navigation between internal pages in an SPA. If there's only one URL for the app, you can't link between specific sub sections of an application.
+- With a SPA, you can't bookmark any interior pages, as the site only has one URL. You could certainly bookmark the root of the app, but you'd need to repeat a set of steps each time you wanted to go to a certain page.
+- Similarly, with a SPA you can't send URL's to other people. Just like with bookmarks, if there's only one URL for the site, you'd have to include instructions on how get from the home page of the app to a specific location along with the URL itself.
+- Anchor tags (`<a>`) cannot handle navigation between internal pages in a SPA. If there's only one URL for the app, you can't link between specific sub sections of an application.
 
 Although React apps are designed as single-page applications, there is often a need to mimic the behavior of multi-page apps for features like those listed above. React itself does not provide a built-in solution for this challenge, but a widely adopted third-party library exists to address these needs.
 
 ## What is React Router?
 
-React Router is a library for *client-side routing* in React applications. With React Router, users can experience all of the benefits of an SPA, along with the expected navigational aspects of traditional websites.
+React Router is a library for *client-side routing* in React applications. With React Router, users can experience all of the benefits of a SPA, along with the expected navigational aspects of traditional websites.
 
 React Router allows SPAs to mimic the functionality of multi-page websites. It accomplishes this through conditional rendering. Whenever React Router detects a change in the URL, it can render corresponding components accordingly. As a result, different content and layouts can be displayed as if they were separate pages, without the need for page reloads. 
 

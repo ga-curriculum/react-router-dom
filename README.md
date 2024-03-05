@@ -21,24 +21,9 @@ This covers the fundamentals React Router, including installation, link componen
 | [Route Parameters](./route-parameters/README.md) | Creating dynamic aspects of URLs |
 | [Programmatic Navigation](./programmatic-navigation/README.md) | Redirecting after an action |
 
-## Level Up content
-
-| Lesson | Video Time | Video | Skills |
-| ------ |:----------:|:-----:| ------ |
-| [tktk Microlesson Name](./tktk-microlesson-04/README.md) | -- | -- | tktk skills covered                     |
-| **Total Level Up content**                               | -- | -- |                                         |
-
 ## References
 
 📖 [Reference Materials](./references/README.md)
-
-## Deployed sites
-
-tktk If there is not a deployed site related to this module this section and all of its content should be removed.
-
-🌐 [Live site](#tktk-deployed-app-url)
-
-🐙 [Repository](#tktk-repository-for-deployed-app)
 
 ## Internal resources
 
