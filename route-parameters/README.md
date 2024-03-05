@@ -30,7 +30,18 @@ Next, wrap the text content of the `<li>` with a `<Link>`:
           </li>
 ```
 
-Notice how we have defined the value of the `to` prop here. With this, each `<Link>` receives a dynamically generated path (`/pokemon/2` for example). At this point, clicking on a link should only trigger a change in the URL bar of your browser, as we have not defined a corresponding route.
+Notice how we have defined the value of the `to` prop here. With this, each `<Link>` receives a dynamically generated path (`/pokemon/2` for example). 
+
+At this point, clicking on one of these links will result in a blank page underneath the app-wide "Pokemon!" header. This is because none of the routes defined in the `<Routes>` component match the pattern of `/pokemon/id`, and you'll see a warning in the browser console letting us know what's going wrong.
+
+If this behavior really bothers you, you can define a **default route** inside the `App.jsx` `<Routes>` component, and add it to the bottom of the list of `<Route>` components:
+
+```jsx
+<Route path='/' element={<h2>Home Page</h2>} />
+<Route path='/pokemon' element={<PokemonList pokemon={pokemon} />}></Route>
+// NEW, CATCH-ALL DEFAULT ROUTE
+<Route path="*" element={<h2>Whoops, nothing here!</h2>} />
+```
 
 ## Defining dynamic routes
 
@@ -89,7 +100,7 @@ In React Router, route parameters are defined in the `path` using a `:` symbol. 
 
 In short, this new `<Route>` tells React Router to render `<PokemonDetails />` for URLs following the pattern `/pokemon/1`, `/pokemon/2`, `/pokemon/3`, etc.
 
-> 💡 Notice how we are we passing the `pokemon` array to `<PokemonDetails />`. In the next section, we'll use this array in conjuction with our `pokemonId` route parameter to locate and render a specific pokemon in the array.
+> 💡 Notice how we are we passing the `pokemon` array to `<PokemonDetails />`. In the next section, we'll use this array combined with our `pokemonId` route parameter to locate and render a specific pokemon in the array.
 
 ## Accessing dynamic parameters with `useParams()`
 
@@ -128,11 +139,10 @@ Add the following import at the top of `src/App.jsx`:
 import { useParams } from "react-router-dom";
 ```
 
-And add the following:
+And add the following lines to the component before the `return` value:
 
 ```jsx
 // src/components/PokemonDetails.jsx
-const PokemonDetails = (props) => {
   const { pokemonId } = useParams();
   console.log('pokemonId:', pokemonId);
 ```
@@ -152,6 +162,8 @@ const PokemonDetails = (props) => {
   const singlePokemon = props.pokemon.find((poke) => poke._id === Number(pokemonId));
   console.log('Pokemon Object:', singlePokemon)
 ```
+
+Note the use of the `Number` function to ensure the route parameter is typecast from its original `String` data type to the `Number` type we expect an `_id` property to have. Route parameters will always start with a `String` datatype, so be careful when making comparisons with them!
 
 Once you verify the `singlePokemon` data, update the `return` with the following: 
 
