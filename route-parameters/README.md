@@ -110,7 +110,7 @@ Notice the `_id` value stored in the URL bar of the details page. We'll need thi
 
 The `useParams()` hook returns an object with properties for each route parameter in the current URL. With this hook, we can store data in the URL, and extract it for use in a component.
 
-![Extracting data with `useParams()`](./assets/params.png)
+![Extracting data with `useParams()`](./assets/useparams.png)
 
 The hook can be applied in a component like so:
 
