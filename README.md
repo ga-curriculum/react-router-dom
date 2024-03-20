@@ -15,7 +15,7 @@ This covers the fundamentals React Router, including installation, link componen
 | -------------------------------------------------------- | -------------------------------------- |
 | [Setup](./setup/README.md) | Setting up the development environment |
 | [Concepts](./concepts/README.md) | Describing usefulness of React Router  |
-| [Installing React Router](./installing-react-router/README.md) | Adding React Router to an application  |
+| [Installing React Router DOM](./installing-react-router-dom/README.md) | Adding React Router DOM to an application  |
 | [Creating Links](./creating-links/README.md) | Implementing `<Link>` components for navigation |
 | [Creating Routes](./creating-routes/README.md) | Creating Routes |
 | [Route Parameters](./route-parameters/README.md) | Creating dynamic aspects of URLs |
