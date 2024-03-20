@@ -18,6 +18,8 @@ Although React apps are designed as single-page applications, there is often a n
 
 React Router is a library for *client-side routing* in React applications. With React Router, users can experience all of the benefits of a SPA, along with the expected navigational aspects of traditional websites.
 
+![Conditional rendering through the URL](./assets/conditional.png)
+
 React Router allows SPAs to mimic the functionality of multi-page websites. It accomplishes this through conditional rendering. Whenever React Router detects a change in the URL, it can render corresponding components accordingly. As a result, different content and layouts can be displayed as if they were separate pages, without the need for page reloads. 
 
 Key features of React Router include:

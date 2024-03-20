@@ -6,11 +6,15 @@
 
 With our navigation bar in place, we can now define the content that should be rendered at each location in our app with some client-side routing. Through client-side routing, we can render different components based on the URL, mimicking the functionality of a traditional multi-page website within a single-page application.
 
-To build out these routes, we'll need two components provided by React Router:
+To build out these routes, we use two components provided by React Router:
 
 1. **`<Route>`**: Used to define individual routes within the application. Each `<Route>` specifies a **path** and an **element** to render when that path is accessed.
 
-2. **`<Routes>`**: Acts as a container for individal `<Route>` components. When a user accesses a URL, the `<Routes>` component looks through its child routes to find the best match, rendering the corresponding UI.
+2. **`<Routes>`**: Acts as a *container* for individal `<Route>` components. When a user accesses a URL, the `<Routes>` component looks through its child routes to find the best match, rendering the corresponding UI.
+
+Below is a diagram depicting the client-side routes that we'll build out in our application:
+
+![Routes](./assets/full-routes.png)
 
 ## Defining routes
 

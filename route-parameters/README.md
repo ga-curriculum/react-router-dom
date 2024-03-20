@@ -108,7 +108,9 @@ With the route in place, you should now be able to navigate to the details page.
 
 Notice the `_id` value stored in the URL bar of the details page. We'll need this value to find a specific pokemon object in the `props.pokemon` array. To do so, we'll make use of React Router's `useParams()` hook.
 
-The `useParams()` hook returns an object with properties for each route parameter in the current URL. 
+The `useParams()` hook returns an object with properties for each route parameter in the current URL. With this hook, we can store data in the URL, and extract it for use in a component.
+
+![Extracting data with `useParams()`](./assets/params.png)
 
 The hook can be applied in a component like so:
 
