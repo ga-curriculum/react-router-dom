@@ -2,12 +2,12 @@
 
 ## About
 
-This covers the fundamentals React Router, including installation, link components, client-side routing, dynamic routing, a programmatic navigation.
+This module introduces the essentials of React Router, a powerful library used for adding navigation functionality within React applications. You'll learn how to install React Router, use link components for navigation, handle client-side routing, and implement dynamic routes. Additionally, the lessons will cover programmatic navigation to manage redirects, making the user experience in your single-page applications more like multi-page applications. Each topic is designed to build on your existing knowledge of React components, controlled forms, and passing props.
 
 ## Prerequisites
 
-- React Components
-- Props
+- Controlled Forms in React
+- Lifting State in React
 
 ## Content
 

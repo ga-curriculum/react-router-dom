@@ -10,31 +10,35 @@ Route parameters are dynamic segments of a URL, used to store data within the UR
 
 ## Create dynamic links
 
-First, let's turn each pokemon name into a clickable link within the `<PokemonList />`. 
+First, let's turn each pokemon name into a clickable link within the `<PokemonList />`.
 
-Add the following import to the top of `src/components/PokemonList.jsx`:
+Import the `Link` component at the top of `PokemonList.jsx`:
 
 ```jsx
 // src/components/PokemonList.jsx
-import { Link } from "react-router-dom";
+
+import { Link } from 'react-router-dom';
 ```
 
 Next, wrap the text content of the `<li>` with a `<Link>`:
 
 ```jsx
 // src/components/PokemonList.jsx
-          <li key={currentPokemon.name}>
-            <Link to={`/pokemon/${currentPokemon._id}`}>
-              {currentPokemon.name}
-            </Link>
-          </li>
+
+<li key={currentPokemon.name}>
+  <Link to={`/pokemon/${currentPokemon._id}`}>
+    {currentPokemon.name}
+  </Link>
+</li>
 ```
 
-Notice how we have defined the value of the `to` prop here. With this, each `<Link>` receives a dynamically generated path (`/pokemon/2` for example). 
+Notice how we have defined the value of the `to` prop here. With this, each `<Link>` receives a dynamically generated path (`/pokemon/2` for example).
+
+### Gotta catch 'em all route
 
 At this point, clicking on one of these links will result in a blank page underneath the app-wide "Pokemon!" header. This is because none of the routes defined in the `<Routes>` component match the pattern of `/pokemon/id`, and you'll see a warning in the browser console letting us know what's going wrong.
 
-If this behavior really bothers you, you can define a **default route** inside the `App.jsx` `<Routes>` component, and add it to the bottom of the list of `<Route>` components:
+To prevent this behavior, you can define a **default route** inside the `App.jsx` `<Routes>` component, and add it to the bottom of the list of `<Route>` components:
 
 ```jsx
 <Route path='/' element={<h2>Home Page</h2>} />
@@ -47,7 +51,7 @@ If this behavior really bothers you, you can define a **default route** inside t
 
 Next, we'll create a route that matches these dynamic links. For this, we'll also need a new component that renders the details of a single pokemon.
 
-Run the following command in your terminal:
+Create a new component called `PokemonDetails`:
 
 ```bash
 touch src/components/PokemonDetails.jsx
@@ -57,6 +61,7 @@ Add the following to `src/components/PokemonDetails.jsx`:
 
 ```jsx
 // src/components/PokemonDetails.jsx
+
 const PokemonDetails = (props) => {
   console.log(props); // Always verify that any props are being passed correctly!
   return (
@@ -77,7 +82,8 @@ export default PokemonDetails;
 
 Import the new component at the top of `src/App.jsx`:
 
-import 
+import
+
 ```jsx
 // src/App.jsx
 import PokemonDetails from './components/PokemonDetails';
@@ -87,16 +93,19 @@ And finally, update the `<Routes/>` component of the `<App/>` component like so:
 
 ```jsx
 // src/App.jsx
-			<Routes>
-				<Route path='/' element={<h2>Home Page</h2>} />
-				<Route path='/pokemon' element={<PokemonList pokemon={pokemon} />} />
-				<Route path='/pokemon/:pokemonId' element={<PokemonDetails pokemon={pokemon} />} />
-			</Routes>
+<Routes>
+  <Route path="/" element={<h2>Home Page</h2>} />
+  <Route path="/pokemon" element={<PokemonList pokemon={pokemon} />} />
+  <Route
+    path="/pokemon/:pokemonId"
+    element={<PokemonDetails pokemon={pokemon} />}
+  />
+</Routes>
 ```
 
 Take a moment to review the syntax of our new dynamic `<Route>`.
 
-In React Router, route parameters are defined in the `path` using a `:` symbol. Here, we have defined a `pokemonId` route parameter. When a user selects a pokemon link, the URL changes to include that pokemon's `_id_`, which is captured by the `pokemonId` parameter. 
+In React Router, route parameters are defined in the `path` using a `:` symbol. Here, we have defined a `pokemonId` route parameter. When a user selects a pokemon link, the URL changes to include that pokemon's `_id_`, which is captured by the `pokemonId` parameter.
 
 In short, this new `<Route>` tells React Router to render `<PokemonDetails />` for URLs following the pattern `/pokemon/1`, `/pokemon/2`, `/pokemon/3`, etc.
 
@@ -104,7 +113,7 @@ In short, this new `<Route>` tells React Router to render `<PokemonDetails />` f
 
 ## Accessing dynamic parameters with `useParams()`
 
-With the route in place, you should now be able to navigate to the details page. 
+With the route in place, you should now be able to navigate to the details page.
 
 Notice the `_id` value stored in the URL bar of the details page. We'll need this value to find a specific pokemon object in the `props.pokemon` array. To do so, we'll make use of React Router's `useParams()` hook.
 
@@ -112,17 +121,19 @@ The `useParams()` hook returns an object with properties for each route paramete
 
 ![Extracting data with `useParams()`](./assets/useparams.png)
 
-The hook can be applied in a component like so:
+The hook can be applied in a component like this:
 
 ```jsx
 const params = useParams();
 console.log(params);
 ```
 
-In `src/components/PokemonDetails.jsx`, the object returned from `useParams()` might look something like this:
+In `PokemonDetails.jsx`, the object returned from `useParams()` might look like this:
 
 ```js
-{ pokemonId: '1' }
+{
+  pokemonId: '1';
+}
 ```
 
 Additionally, the `useParams()` hook can take advantage of object destructuring:
@@ -132,21 +143,23 @@ const { pokemonId } = useParams();
 console.log(pokemonId); // Expected output: '1'
 ```
 
-Let's apply this pattern in `src/components/PokemonDetails.jsx`.
+Let's apply this pattern in `PokemonDetails.jsx`.
 
 Add the following import at the top of `src/App.jsx`:
 
 ```jsx
 // src/components/PokemonDetails.jsx
-import { useParams } from "react-router-dom";
+
+import { useParams } from 'react-router-dom';
 ```
 
 And add the following lines to the component before the `return` value:
 
 ```jsx
 // src/components/PokemonDetails.jsx
-  const { pokemonId } = useParams();
-  console.log('pokemonId:', pokemonId);
+
+const { pokemonId } = useParams();
+console.log('pokemonId:', pokemonId);
 ```
 
 Try navigating to the details page once again, and verify that you are able to access the `pokemonId` route parameter.
@@ -155,33 +168,35 @@ Try navigating to the details page once again, and verify that you are able to a
 
 Our last task is to `find()` a specific pokemon in the `props.pokemon` array using the extracted `pokemonId`.
 
-Update `src/components/PokemonDetails.jsx` with the following:
+Update the main function of `PokemonDetails.jsx` with the following:
 
 ```jsx
 // src/components/PokemonDetails.jsx
+
 const PokemonDetails = (props) => {
   const { pokemonId } = useParams();
   const singlePokemon = props.pokemon.find((poke) => poke._id === Number(pokemonId));
   console.log('Pokemon Object:', singlePokemon)
+
 ```
 
 Note the use of the `Number` function to ensure the route parameter is typecast from its original `String` data type to the `Number` type we expect an `_id` property to have. Route parameters will always start with a `String` datatype, so be careful when making comparisons with them!
 
-Once you verify the `singlePokemon` data, update the `return` with the following: 
+Once you verify the `singlePokemon` data, update the `return` with the following:
 
 ```jsx
 // src/components/PokemonDetails.jsx
-  return (
-    <>
-      <h2>{singlePokemon.name}</h2>
-      <dl>
-        <dt>Weight:</dt>
-        <dd>{singlePokemon.weight}</dd>
-        <dt>Height:</dt>
-        <dd>{singlePokemon.height}</dd>
-      </dl>
-    </>
-  );
+return (
+  <>
+    <h2>{singlePokemon.name}</h2>
+    <dl>
+      <dt>Weight:</dt>
+      <dd>{singlePokemon.weight}</dd>
+      <dt>Height:</dt>
+      <dd>{singlePokemon.height}</dd>
+    </dl>
+  </>
+);
 ```
 
 Test this functionality in your browser. When you click on a link, you should see details on the corresponding pokemon.
