@@ -1,12 +1,12 @@
 # ![React Router - Installing React Router DOM](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to add React Router to a React app and understand its initial setup.
+**Learning objective:** By the end of this lesson, students will be able to install React Router and add it to their React application.
 
 ## Installation
 
 To add React Router, the first step is installing the package.
 
-Begin by installing the `react-router-dom` package using npm:
+Begin by installing the [`react-router-dom`](https://www.npmjs.com/package/react-router-dom) package using npm:
 
 ```bash
 npm i react-router-dom

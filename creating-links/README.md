@@ -12,22 +12,29 @@ Take a look at the example of a `<Link>` component below:
 <Link to='/'>Home</Link>
 ```
 
+vs. 
+
+```html
+<a href="/">Home</a>
+```
+
 The `<Link>` component differs from a traditional `<a>` tag, in that it accepts a `to` prop instead of an `href`. The `to` prop is used to specify the navigation target. This prop can be a string representing the path or an object if additional information is required.
 
 ## Creating a navigation bar
 
-Let's add some basic navigation to our application with a nav bar component.
+Let's add some basic navigation to our application with a `nav` bar component.
 
-Run the following command in your terminal:
+Create a new component called `NavBar`:
 
 ```bash
 touch src/components/NavBar.jsx
 ```
 
-Add the following `src/components/NavBar.jsx`:
+Add the following in `src/components/NavBar.jsx`:
 
 ```jsx
 // src/components/NavBar.jsx
+
 const NavBar = () => {
   return (
     <nav>
@@ -49,7 +56,7 @@ In `src/App.jsx`, import the new component:
 import NavBar from './components/NavBar';
 ```
 
-Next, add the `<NavBar />` to the `return`:
+Next, add the `<NavBar />` component to the return:
 
 ```jsx
 // src/App.jsx
@@ -62,18 +69,18 @@ Next, add the `<NavBar />` to the `return`:
 	);
 ```
 
-With a basic HTML structure in place, we should now be ready to integrate navigable links.
+With this basic HTML structure in place, we should now be ready to integrate some navigable links.
 
 ## Implementing links
 
-At the top of `src/components/NavBar.jsx`, we'll import `Link` from `react-router-dom`:
+At the top of `NavBar.jsx`, we'll import `Link` from `react-router-dom`:
 
 ```jsx
 // src/components/NavBar.jsx
 import { Link } from 'react-router-dom';
 ```
 
-Next, update the list items in the navigation bar by wrapping their content with a `<Link>` component:
+Next, update the list items in the `nav` bar by wrapping their content with a `<Link>` component:
 
 ```jsx
 // src/components/NavBar.jsx
@@ -93,6 +100,6 @@ Next, update the list items in the navigation bar by wrapping their content with
 
 This transforms the text content into clickable links, allowing our users to navigate to the URL path defined in each `<Link>`.
 
-After adding the `<Link>` components, test out the navigation in your browser. Clicking on the links should **change the URL path accordingly**, but not the content displayed in your app. 
+After adding the `<Link>` components, test out the navigation in your browser. Clicking on the links should **change the URL path in the browser**, but not the content displayed in your app yet.
 
 Although we are able to navigate between different locations in our app, we have yet to define what should be rendered at each of these locations. For that, we'll need to make use of React Router's `<Routes>` component.

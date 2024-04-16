@@ -14,7 +14,7 @@ Create a new Vite project for your React app:
 npm create vite@latest
 ```
 
-You'll be prompted to choose a project name. Let's name it `react-router-dom-lesson`. 
+You'll be prompted to choose a project name. Let's name it `react-router-dom`.
 
 - Select a framework. Use the arrow keys to choose the `React` option and hit `Enter`.
 
@@ -23,7 +23,7 @@ You'll be prompted to choose a project name. Let's name it `react-router-dom-les
 Navigate to your new project directory and install the necessary dependencies:
 
 ```bash
-cd react-router-dom-lesson
+cd react-router-dom
 npm i
 ```
 
@@ -58,13 +58,10 @@ Open the `App.jsx` file in the `src` directory and replace the contents of it wi
 // src/App.jsx
 
 const App = () => {
+  return <h1>Hello world!</h1>;
+};
 
-  return (
-    <h1>Hello world!</h1>
-  );
-}
-
-export default App
+export default App;
 ```
 
 ### GitHub setup
@@ -75,12 +72,12 @@ To add this project to GitHub, initialize a Git repository:
 git init
 ```
 
-Make a new repository on [GitHub](https://github.com/) named react-router-dom-lesson. 
+Make a new repository on [GitHub](https://github.com/) named react-router-dom.
 
 Link your local project to your remote GitHub repo:
 
 ```bash
-git remote add origin https://github.com/<github-username>/react-router-dom-lesson.git
+git remote add origin https://github.com/<github-username>/react-router-dom.git
 git push origin main
 ```
 
@@ -95,28 +92,26 @@ cd src
 mkdir components
 ```
 
-Then, run the following command in your terminal to make our first main component:
+Create a new component called `PokemonList`:
 
 ```bash
 touch components/PokemonList.jsx
 ```
 
-Add the following to `src/components/PokemonList.jsx`:
+Add the following starter code to `src/components/PokemonList.jsx`:
 
 ```jsx
 const PokemonList = (props) => {
-	return (
-		<>
-			<h2>Pokemon</h2>
-			<ul>
-				{props.pokemon.map((currentPokemon) => (
-					<li key={currentPokemon.name}>
-						{currentPokemon.name}
-					</li>
-				))}
-			</ul>
-		</>
-	);
+  return (
+    <>
+      <h2>Pokemon</h2>
+      <ul>
+        {props.pokemon.map((currentPokemon) => (
+          <li key={currentPokemon.name}>{currentPokemon.name}</li>
+        ))}
+      </ul>
+    </>
+  );
 };
 
 export default PokemonList;
@@ -130,21 +125,21 @@ import { useState } from 'react';
 import PokemonList from './components/PokemonList';
 
 const initialState = [
-	{ _id: 1, name: 'bulbasaur', weight: 69, height: 7 },
-	{ _id: 2, name: 'ivysaur', weight: 130, height: 10 },
-	{ _id: 3, name: 'venusaur', weight: 1000, height: 20 },
-	{ _id: 4, name: 'charmander', weight: 85, height: 6 },
-	{ _id: 5, name: 'charmeleon', weight: 190, height: 11 },
+  { _id: 1, name: 'bulbasaur', weight: 69, height: 7 },
+  { _id: 2, name: 'ivysaur', weight: 130, height: 10 },
+  { _id: 3, name: 'venusaur', weight: 1000, height: 20 },
+  { _id: 4, name: 'charmander', weight: 85, height: 6 },
+  { _id: 5, name: 'charmeleon', weight: 190, height: 11 },
 ];
 
 const App = () => {
-	const [pokemon, setPokemon] = useState(initialState);
-	return (
-		<>
-			<h1>Pokemon!</h1>
-			<PokemonList pokemon={pokemon} />
-		</>
-	);
+  const [pokemon, setPokemon] = useState(initialState);
+  return (
+    <>
+      <h1>Pokemon!</h1>
+      <PokemonList pokemon={pokemon} />
+    </>
+  );
 };
 
 export default App;
