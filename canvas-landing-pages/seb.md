@@ -6,15 +6,15 @@ This module introduces the essentials of React Router, a powerful library used f
 
 ## Content
 
-| Lesson                                                   | Skills                                 |
-| -------------------------------------------------------- | -------------------------------------- |
-| [Setup](../setup/README.md) | Setting up the development environment |
-| [Concepts](../concepts/README.md) | Describing usefulness of React Router  |
-| [Installing React Router DOM](../installing-react-router-dom/README.md) | Adding React Router DOM to an application  |
-| [Creating Links](../creating-links/README.md) | Implementing `<Link>` components for navigation |
-| [Creating Routes](../creating-routes/README.md) | Creating Routes |
-| [Route Parameters](../route-parameters/README.md) | Creating dynamic aspects of URLs |
-| [Programmatic Navigation](../programmatic-navigation/README.md) | Redirecting after an action |
+| Lesson                                                                  | Skills                                          |
+| ----------------------------------------------------------------------- | ----------------------------------------------- |
+| [Setup](../setup/README.md)                                             | Setting up the development environment          |
+| [Concepts](../concepts/README.md)                                       | Describing usefulness of React Router           |
+| [Installing React Router DOM](../installing-react-router-dom/README.md) | Adding React Router DOM to an application       |
+| [Creating Links](../creating-links/README.md)                           | Implementing `<Link>` components for navigation |
+| [Creating Routes](../creating-routes/README.md)                         | Creating Routes                                 |
+| [Route Parameters](../route-parameters/README.md)                       | Creating dynamic aspects of URLs                |
+| [Programmatic Navigation](../programmatic-navigation/README.md)         | Redirecting after an action                     |
 
 ## References
 
