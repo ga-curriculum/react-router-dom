@@ -1,8 +1,11 @@
-# ![React Router DOM - Setup](./assets/hero.png)
+<h1>
+  <span class="headline">React Router DOM</span>
+  <span class="subhead">Setup</span>
+</h1>
 
 ## Setup
 
-Open your Terminal application and navigate to your **`~/code/ga/lectures`** directory:
+Open your Terminal application and navigate to your `~/code/ga/lectures` directory:
 
 ```bash
 cd ~/code/ga/lectures
@@ -35,20 +38,25 @@ code .
 
 ### Configuring ESLint
 
-Before we begin, we need to adjust the ESLint configuration. Add the following rules to the `.eslintrc.cjs` file:
+Before we begin, we need to adjust the ESLint configuration. Add the indicated rules to the `rules` object in your `eslint.config.js` file:
 
-```js
-rules: {
-  'react-refresh/only-export-components': [
-    'warn',
-    { allowConstantExport: true },
-  ],
-  'react/prop-types': 'off', // add this line
-  'react/no-unescaped-entities': 'off' // add this line
-},
+```javascript
+    rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      'react/jsx-no-target-blank': 'off',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+      'react/prop-types': 'off', // add this line
+      'react/no-unescaped-entities': 'off', // add this line
+    },
 ```
 
-The first addition prevents warnings if you're not declaring types for your props (which we're not), and the second prevents warnings if you're using contractions within JSX.
+The first addition prevents warnings if you don't declare types for your props (which we're not), and the second prevents warnings if you use contractions within JSX.
 
 ### Clear `App.jsx`
 
@@ -66,13 +74,13 @@ export default App;
 
 ### Running the development server
 
-To start the development server and view our app in the browser, we'll use the following command: 
+To start the development server and view our app in the browser, we'll use the following command:
 
 ```bash
 npm run dev
 ```
 
-You should see that `Vite` is available on port number 5173: 
+You should see that `Vite` is available on port number 5173:
 
 ```plaintext
 localhost:5173
@@ -88,7 +96,7 @@ git add .
 git commit -m "init commit"
 ```
 
-Make a new repository on [GitHub](https://github.com/) named react-router-dom. 
+Make a new repository on [GitHub](https://github.com/) named `react-router-dom`.
 
 Link your local project to your remote GitHub repo:
 
@@ -101,22 +109,24 @@ git push origin main
 
 ## Getting started
 
-Since this lesson is going to involve switching between components, let's keep things organized by creating a `components` folder at the root level of the `src` directory:
+Since this lesson is going to involve switching between components, let's keep things organized by creating a `components` directory in the `src` directory:
 
 ```bash
-cd src
-mkdir components
+mkdir src/components
 ```
 
 Create a new component called `PokemonList`:
 
 ```bash
-touch components/PokemonList.jsx
+mkdir src/components/PokemonList
+touch src/components/PokemonList/PokemonList.jsx
 ```
 
-Add the following starter code to `src/components/PokemonList.jsx`:
+Add the following starter code to `src/components/PokemonList/PokemonList.jsx`:
 
 ```jsx
+// src/components/PokemonList/PokemonList.jsx
+
 const PokemonList = (props) => {
   return (
     <>
@@ -137,8 +147,9 @@ Open `src/App.jsx` and replace its contents with the following:
 
 ```jsx
 // src/App.jsx
+
 import { useState } from 'react';
-import PokemonList from './components/PokemonList';
+import PokemonList from './components/PokemonList/PokemonList';
 
 const initialState = [
   { _id: 1, name: 'bulbasaur', weight: 69, height: 7 },
@@ -160,4 +171,3 @@ const App = () => {
 
 export default App;
 ```
-

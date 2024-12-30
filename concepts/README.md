@@ -1,4 +1,7 @@
-# ![React Router - Concepts](./assets/hero.png)
+<h1>
+  <span class="headline">React Router DOM</span>
+  <span class="subhead">Concepts</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, students will understand how React Router enhances single-page applications by providing dynamic navigation similar to traditional multi-page websites.
 
@@ -16,11 +19,13 @@ To overcome these limitations, React developers often use third-party libraries 
 
 ## What is React Router?
 
-[React Router](https://reactrouter.com/en/main/router-components/browser-router) is a library that enables *client-side routing* in React applications. With React Router, users can experience all of the benefits of a SPA, along with the expected navigational aspects of traditional websites.
+[React Router](https://reactrouter.com/home) is both a framework and a library for React. It allows developers to pick which path they want to take. We'll be using the React Router as a library.
+
+The React Router Library enables *client-side routing* in React applications. With React Router, users can experience all of the benefits of a SPA, along with the expected navigational aspects of traditional websites.
 
 ![Conditional rendering through the URL](./assets/conditional.png)
 
-React Router allows SPAs to mimic the functionality of multi-page websites. It accomplishes this through conditional rendering. Whenever React Router detects a change in the URL, it can render corresponding components accordingly. As a result, different content and layouts can be displayed as if they were separate pages, without the need for page reloads. 
+React Router allows SPAs to mimic the functionality of multi-page websites. It accomplishes this through conditional rendering. Whenever React Router detects a change in the URL, it can render corresponding components accordingly. As a result, different content and layouts can be displayed as if they were separate pages, without the need for page reloads.
 
 Some key features of React Router include:
 
