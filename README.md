@@ -34,7 +34,7 @@ Additionally, the lessons will cover programmatic navigation to manage redirects
 
 ### Solution code
 
-🏁 [Solution code](https://git.generalassemb.ly/modular-curriculum-all-courses/react-router-dom-solution)
+🏁 [Solution code](https://github.com/ga-curriculum/react-router-dom-solution)
 
 ### Course landing pages
 
